@@ -21,21 +21,32 @@ class Catalog_Command extends \WP_CLI_Command {
 
 		// TODO: exception handling.
 		$this->mariadb_connection = new \Mariadb\CatalogsPHP\Catalog( $db_host, $db_port, $db_user, $db_pass );
-
-		// TODO: check if this is a maria DB server.
-		// TODO: are catalogs enabled.
 	}
 
 	/**
+	 * Create a catalog with the specified name.
+	 *
+	 * ## OPTIONS
+	 *
+	 * <catalog_name>
+	 * : Name of the catalog.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     # Create a catalog with the specified name.
+	 *     $ wp mariadb catalog create "test"
+	 *     3307
+	 *
 	 * @when before_wp_load
 	 */
 	public function create( $args, $assoc_args ) {
-		$cataloge_name = $args[0];
-		$this->get_mariadb_connection()->create( $cataloge_name );
-	}
+		$catalog_name = $args[0];
 
-	public function is_enabled( $args, $assoc_args ) {
-		$cataloge_name = $args[0];
-		$this->get_mariadb_connection()->is_enabled( $cataloge_name );
+		try {
+			$port = $this->get_mariadb_connection()->create( $catalog_name );
+			\WP_CLI::log( absint( $port ) );
+		} catch ( Exception $e ) {
+			\WP_CLI::error( sprintf( 'Error creating catalog "%s": %s', $catalog_name, $e->getMessage() ) );
+		}
 	}
 }
