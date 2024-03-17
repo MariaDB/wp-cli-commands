@@ -58,7 +58,31 @@ class Catalog_Command extends \WP_CLI_Command {
 	public function is_enabled( $args, $assoc_args ) {
 	}
 
-	public function get_port( $args, $assoc_args ) {
+	/**
+	 * Retrieve the port of the given catalog.
+	 *
+	 * ## OPTIONS
+	 *
+	 * <catalog_name>
+	 * : Name of the catalog.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     # Port a catalog to the specified port.
+	 *     $ wp mariadb catalog port "test"
+	 *     3307
+	 *
+	 * @when before_wp_load
+	 */
+	public function port( $args, $assoc_args ) {
+		$catalog_name = $args[0];
+
+		try {
+			$port = $this->get_mariadb_connection()->getPort( $catalog_name );
+			\WP_CLI::log( absint( $port ) );
+		} catch ( Exception $e ) {
+			\WP_CLI::error( sprintf( 'Error creating catalog "%s": %s', $catalog_name, $e->getMessage() ) );
+		}
 	}
 
 	public function list( $args, $assoc_args ) {
