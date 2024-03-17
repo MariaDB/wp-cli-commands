@@ -14,7 +14,11 @@ class Catalog_Command extends \WP_CLI_Command
             return $this->mariadb_connection;
         }
 
-        // TODO check if these constants are defined.
+        // Check if the required constants are defined
+        if (!defined('DB_HOST') || !defined('DB_USER') || !defined('DB_PASSWORD')) {
+            \WP_CLI::error('The database constants are not defined.');
+        }
+
         $db_host = \DB_HOST; // TODO check if the constant has a port.
         $db_port = 3306;
         $db_user = \DB_NAME;
