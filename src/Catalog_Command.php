@@ -54,4 +54,22 @@ class Catalog_Command extends \WP_CLI_Command {
 			\WP_CLI::error( sprintf( 'Error creating catalog "%s": %s', $catalog_name, $e->getMessage() ) );
 		}
 	}
+
+	public function is_enabled( $args, $assoc_args ) {
+	}
+
+	public function get_port( $args, $assoc_args ) {
+	}
+
+	public function list( $args, $assoc_args ) {
+	}
+
+	public function delete( $args, $assoc_args ) {
+	}
+
+	/**
+	 * Will list all databases in the catalog.
+	 */
+	public function databases( $args, $assoc_args ) {
+	}
 }
