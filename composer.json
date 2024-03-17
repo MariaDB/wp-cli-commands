@@ -1,0 +1,7 @@
+{
+    "name": "mariadb/wp-cli-commands",
+    "description": "WP-CLI commands for MariaDB",
+    "type": "wp-cli-package",
+    "license": "GPL-2.0-or-later",
+    "require": {}
+}
