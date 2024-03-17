@@ -29,12 +29,12 @@ class Catalog_Command extends \WP_CLI_Command
      *
      * ## OPTIONS
      *
-     * <Catalog_name>
+     * <catalog_name>
      * : Name of the catalog.
      *
      * ## EXAMPLES
      *
-     *     # Get the table_prefix as defined in wp-config.php file.
+     *     # Create a catalog with the specified name.
      *     $ wp mariadb catalog create "test"
      *     3307
      *
@@ -46,7 +46,7 @@ class Catalog_Command extends \WP_CLI_Command
 
         try {
             $port = $this->get_mariadb_connection()->create($catalog_name);
-            \WP_CLI::success(sprintf('Catalog "%s" created successfully on port %s.', $catalog_name, $port));
+            \WP_CLI::log(absint($port));
         } catch (Exception $e) {
             \WP_CLI::error(sprintf('Error creating catalog "%s": %s', $catalog_name, $e->getMessage()));
         }
