@@ -3,5 +3,45 @@
     "description": "WP-CLI commands for MariaDB",
     "type": "wp-cli-package",
     "license": "GPL-2.0-or-later",
-    "require": {}
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "classmap": [
+            "src/"
+        ],
+        "files": [
+            "maria-db-commands.php"
+        ]
+    },
+    "require": {
+        "wp-cli/wp-cli": "^2",
+        "mariadb/catalogs-php": "dev-main"
+    },
+    "require-dev": {
+        "wp-cli/wp-cli-tests": "^4"
+    },
+    "scripts": {
+        "lint": "run-linter-tests",
+        "phpcs": "run-phpcs-tests",
+        "phpcbf": "run-phpcbf-cleanup",
+        "phpunit": "run-php-unit-tests",
+        "behat": "run-behat-tests",
+        "prepare-tests": "install-package-tests",
+        "test": [
+            "@lint",
+            "@phpcs",
+            "@phpunit",
+            "@behat"
+        ]
+    },
+    "extra": {
+        "commands": [
+            "mariadb"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
 }
