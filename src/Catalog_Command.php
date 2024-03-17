@@ -129,9 +129,55 @@ class Catalog_Command extends \WP_CLI_Command
 
 
     /**
-     * Will list all databases in the catalog.
+     * Lists all databases in the catalog.
+     *
+     * ## OPTIONS
+     *
+     * [--format=<format>]
+     * : Render output in a particular format.
+     * ---
+     * default: table
+     * options:
+     *   - table
+     *   - json
+     *   - csv
+     *   - ids
+     *   - yaml
+     * ---
+     *
+     * ## EXAMPLES
+     *
+     *     # List databases in table format.
+     *     $ wp mariadb catalog databases
+     *
+     *     # List databases in JSON format.
+     *     $ wp mariadb catalog databases --format=json
+     *
+     * @when after_wp_load
      */
     public function databases($args, $assoc_args)
     {
+        try {
+            $databases = $this->get_mariadb_connection()->list();
+
+            if (empty($databases)) {
+                \WP_CLI::log('No databases found.');
+                return;
+            }
+
+            // Fetch the format argument, defaulting to 'table' if not provided.
+            $format = \WP_CLI\Utils\get_flag_value($assoc_args, 'format', 'table');
+
+            // Prepare items for output.
+            $items = array_map(function ($database) {
+                return ['Name' => $database]; // Assuming each database is represented simply by its name.
+            }, $databases);
+
+            // Output the items in the requested format.
+            \WP_CLI\Utils\format_items($format, $items, ['Name']);
+        } catch (Exception $e) {
+            \WP_CLI::error(sprintf('An error occurred while listing databases: %s', $e->getMessage()));
+        }
     }
+
 }
