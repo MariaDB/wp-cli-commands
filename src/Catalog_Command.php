@@ -53,7 +53,7 @@ class Catalog_Command extends \WP_CLI_Command
             $port = $this->get_mariadb_connection()->create($catalog_name);
             \WP_CLI::log(absint($port));
         } catch (Exception $e) {
-            \WP_CLI::error(sprintf('Error creating catalog "%s": %s', $catalog_name, $e->getMessage()));
+            \WP_CLI::error(sprintf('Error creating catalog: %s', $e->getMessage()));
         }
     }
 
@@ -85,7 +85,7 @@ class Catalog_Command extends \WP_CLI_Command
             $port = $this->get_mariadb_connection()->getPort($catalog_name);
             \WP_CLI::log(absint($port));
         } catch (Exception $e) {
-            \WP_CLI::error(sprintf('Error creating catalog "%s": %s', $catalog_name, $e->getMessage()));
+            \WP_CLI::error(sprintf('Error creating catalog: %s', $e->getMessage()));
         }
     }
 
@@ -115,15 +115,10 @@ class Catalog_Command extends \WP_CLI_Command
         try {
             // Assuming the delete method returns true on successful deletion,
             // false otherwise.
-            $success = $this->get_mariadb_connection()->drop($catalog_name);
-
-            if ($success) {
-                \WP_CLI::success(sprintf('Catalog "%s" deleted successfully.', $catalog_name));
-            } else {
-                \WP_CLI::error(sprintf('Failed to delete catalog "%s". It may not exist.', $catalog_name));
-            }
+            $this->get_mariadb_connection()->drop($catalog_name);
+            \WP_CLI::success('Catalog dropped.');
         } catch (Exception $e) {
-            \WP_CLI::error(sprintf('Error deleting catalog "%s": %s', $catalog_name, $e->getMessage()));
+            \WP_CLI::error(sprintf('Error deleting catalog: %s', $e->getMessage()));
         }
     }
 
