@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MariaDB/catalogs-php.git",
-                "reference": "2725a35e4163584930e3d8779526433f6c2298f5"
+                "reference": "a2ebe99e01209946c05db53b59721a6d70a9ee1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MariaDB/catalogs-php/zipball/2725a35e4163584930e3d8779526433f6c2298f5",
-                "reference": "2725a35e4163584930e3d8779526433f6c2298f5",
+                "url": "https://api.github.com/repos/MariaDB/catalogs-php/zipball/a2ebe99e01209946c05db53b59721a6d70a9ee1e",
+                "reference": "a2ebe99e01209946c05db53b59721a6d70a9ee1e",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "issues": "https://github.com/MariaDB/catalogs-php/issues",
                 "source": "https://github.com/MariaDB/catalogs-php/tree/main"
             },
-            "time": "2024-03-18T08:17:29+00:00"
+            "time": "2024-03-18T09:42:20+00:00"
         },
         {
             "name": "mustache/mustache",

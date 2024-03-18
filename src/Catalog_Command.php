@@ -25,10 +25,8 @@ class Catalog_Command extends \WP_CLI_Command {
 		$db_pass = \DB_PASSWORD;
 
 		// TODO: exception handling.
-		$this->mariadb_connection = new \Mariadb\CatalogsPHP\Catalog( $db_host, $db_port, $db_user, $db_pass );
+		$this->mariadb_connection = new \Mariadb\CatalogsPHP\CatalogManager( $db_host, $db_port, $db_user, $db_pass );
 	}
-
-
 
 	/**
 	 * Create a catalog with the specified name.
