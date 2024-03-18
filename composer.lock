@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MariaDB/catalogs-php.git",
-                "reference": "28538c7ce8635c7eab60cf95d46ebb3413b6a05b"
+                "reference": "2725a35e4163584930e3d8779526433f6c2298f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MariaDB/catalogs-php/zipball/28538c7ce8635c7eab60cf95d46ebb3413b6a05b",
-                "reference": "28538c7ce8635c7eab60cf95d46ebb3413b6a05b",
+                "url": "https://api.github.com/repos/MariaDB/catalogs-php/zipball/2725a35e4163584930e3d8779526433f6c2298f5",
+                "reference": "2725a35e4163584930e3d8779526433f6c2298f5",
                 "shasum": ""
             },
             "require": {
@@ -32,7 +32,8 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Mariadb\\CatalogsPHP\\": "src/"
+                    "Mariadb\\CatalogsPHP\\": "src/",
+                    "Mariadb\\CatalogsPHP\\Tests\\": "tests/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -44,7 +45,7 @@
                 "issues": "https://github.com/MariaDB/catalogs-php/issues",
                 "source": "https://github.com/MariaDB/catalogs-php/tree/main"
             },
-            "time": "2024-03-17T15:14:15+00:00"
+            "time": "2024-03-18T08:17:29+00:00"
         },
         {
             "name": "mustache/mustache",
@@ -1309,22 +1310,22 @@
         },
         {
             "name": "phpcsstandards/phpcsutils",
-            "version": "1.0.9",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSUtils.git",
-                "reference": "908247bc65010c7b7541a9551e002db12e9dae70"
+                "reference": "51609a5b89f928e0c463d6df80eb38eff1eaf544"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/908247bc65010c7b7541a9551e002db12e9dae70",
-                "reference": "908247bc65010c7b7541a9551e002db12e9dae70",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/51609a5b89f928e0c463d6df80eb38eff1eaf544",
+                "reference": "51609a5b89f928e0c463d6df80eb38eff1eaf544",
                 "shasum": ""
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.4.1 || ^0.5 || ^0.6.2 || ^0.7 || ^1.0",
                 "php": ">=5.4",
-                "squizlabs/php_codesniffer": "^3.8.0 || 4.0.x-dev@dev"
+                "squizlabs/php_codesniffer": "^3.9.0 || 4.0.x-dev@dev"
             },
             "require-dev": {
                 "ext-filter": "*",
@@ -1393,7 +1394,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-12-08T14:50:00+00:00"
+            "time": "2024-03-17T23:44:50+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
