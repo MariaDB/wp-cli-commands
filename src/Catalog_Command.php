@@ -58,16 +58,16 @@ class Catalog_Command extends \WP_CLI_Command {
 	/**
 	 * Checks if catalogs are enabled.
 	 *
-	 * Determines whether catalogs are enabbled by checking the
-	 * isCatalogSupported() value.
-	 *
-	 * ## OPTIONS
-	 *
-	 * [--network]
-	 * : Check if this is a multisite installation.
+	 * Determines whether catalogs are enabbled on the given servcer.
 	 *
 	 * ## EXAMPLES
 	 *
+	 *     # Check if catalogs are enabled.
+	 *     if wp mariadb catalog is-enabled 2>/dev/null; then
+	 *         # Catalogs are enabled.
+	 *         # Create a catalog here.
+	 *     fi
+
 	 *
 	 * @when before_wp_load
 	 */
