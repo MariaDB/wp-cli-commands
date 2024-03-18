@@ -3,7 +3,7 @@
 class Catalog_Command extends \WP_CLI_Command {
 
 	/**
-	 * @var \Mariadb\CatalogsPHP\Catalog
+	 * @var \Mariadb\CatalogsPHP\CatalogManager
 	 */
 	protected $mariadb_connection;
 
